@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 
 import 'package:dbphoto/Screen/dbHelper.dart';
 import 'package:dbphoto/Screen/homeController.dart';
@@ -21,10 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          appBar: AppBar(title: Text("Db Photo insert")),
       body: Column(
         children: [
-          Obx(
-            () => ElevatedButton(
+           ElevatedButton(
                 onPressed: () async {
                   ByteData byteData =
                       await rootBundle.load("assets/Image/11.jpg");
@@ -34,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   db.insertData("ronak", "9737987808", unitlist);
                 },
                 child: Icon(Icons.add)),
-          ),
           Expanded(
             child: Obx(
               () => ListView.builder(
